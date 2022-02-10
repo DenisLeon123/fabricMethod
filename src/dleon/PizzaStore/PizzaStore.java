@@ -4,8 +4,6 @@ import dleon.Enumeration.TypeOfPizza;
 import dleon.Pizza.*;
 
 public abstract class PizzaStore {
-
-
     public Pizza orderPizza(TypeOfPizza typeOfPizza){
         Pizza pizza;
 
