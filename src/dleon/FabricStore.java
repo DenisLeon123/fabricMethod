@@ -5,13 +5,17 @@ import dleon.Pizza.Pizza;
 import dleon.PizzaStore.PizzaStore;
 
 public class FabricStore {
-    private static FabricStore instance;
+    private static volatile FabricStore instance;
 
     private FabricStore(){}
 
     public static FabricStore getInstance(){
         if(instance == null){
-            instance = new FabricStore();
+            synchronized (FabricStore.class){
+                if(instance == null){
+                    instance = new FabricStore();
+                }
+            }
         }
 
         return instance;
